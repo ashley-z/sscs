@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CarouselImage } from '@/data/carousel';
+import Link from 'next/link';
 
 export default function ImageCarousel({ images }: { images: CarouselImage[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -61,14 +62,28 @@ export default function ImageCarousel({ images }: { images: CarouselImage[] }) {
     <div className="relative max-w-5xl mx-auto md:px-4">
       <div className="overflow-hidden md:rounded-xl shadow-sm" ref={emblaRef}>
         <div className="flex touch-pan-y">
-          {images.map((image, index) => (
-            <div className="flex-[0_0_100%] min-w-0 relative h-[240px] md:h-[460px] bg-gradient-to-br from-charcoal to-primary-dark flex items-center justify-center" key={index}>
-              <div className="text-center p-6 text-white absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-display text-2xl md:text-3xl font-bold opacity-80 mb-2">{image.caption || "Event Photo"}</span>
-                <span className="text-sm opacity-60">({image.alt})</span>
+          {images.map((image, index) => {
+            const content = (
+              <div className="relative w-full h-full group">
+                <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-charcoal/40 group-hover:bg-charcoal/30 transition-colors flex flex-col items-center justify-end pb-8">
+                  <span className="font-display text-2xl md:text-3xl font-bold text-white drop-shadow-md mb-2">{image.caption || "Event Photo"}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return (
+              <div className="flex-[0_0_100%] min-w-0 relative h-[300px] md:h-[460px] bg-charcoal" key={index}>
+                {image.href ? (
+                  <Link href={image.href} className="block w-full h-full">
+                    {content}
+                  </Link>
+                ) : (
+                  content
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
