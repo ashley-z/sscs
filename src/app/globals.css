@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-source-sans: 'Source Sans 3', sans-serif;
+  --color-primary: #C0272D;
+  --color-primary-dark: #8B1A1E;
+  --color-primary-light: #F5E8E8;
+  --color-charcoal: #2C2C2A;
+  --color-mid: #5F5E5A;
+  --color-cream: #FAF8F4;
+  --color-border: #E0DDD6;
+  --color-white: #FFFFFF;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-charcoal: var(--color-charcoal);
+  --color-cream: var(--color-cream);
+  --color-mid: var(--color-mid);
+  --color-border: var(--color-border);
+  --color-white: var(--color-white);
+
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-source-sans);
+}
+
+body {
+  @apply font-body bg-cream text-charcoal;
+}
