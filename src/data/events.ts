@@ -154,5 +154,41 @@ export const events: Event[] = [
     galleryFolder: "mid-autumn-national-day-2023",
     category: "Cultural",
     status: "past"
+  },
+  {
+    id: "lunar-new-year-lantern-2024",
+    title: "Happy Lunar New Year & Lantern Festival",
+    date: "2024-02-23",
+    time: "6:30 PM - 9:00 PM",
+    location: "Bur Oak High School, 933 Bur Oak Ave., Markham",
+    description: "We hosted a wonderful Lunar New Year and Lantern Festival celebration. The event featured evening performances, cultural activities, and a community gathering, co-organized with multiple local associations.",
+    image: "/images/events/lunar-new-year-lantern-2024/lunar-new-year-lantern-2024.jpg",
+    galleryFolder: "lunar-new-year-lantern-2024",
+    category: "Cultural",
+    status: "past"
+  },
+  {
+    id: "family-education-seminar-2024",
+    title: "Integration of Chinese and Western Family Education Seminar",
+    date: "2024-01-26",
+    time: "9:30 AM",
+    location: "60 Riviera Dr., Markham",
+    description: "An insightful seminar discussing the integration of Chinese and Western approaches to family education. The talk featured a special presentation by Professor Geng Zhongping, retired professor of humanities from Tongji University.",
+    image: "/images/events/family-education-seminar-2024/family-education-seminar-2024.jpg",
+    galleryFolder: "family-education-seminar-2024",
+    category: "Education",
+    status: "past"
+  },
+  {
+    id: "mid-autumn-festival-2023",
+    title: "NCCC Mid-Autumn Festival Celebration",
+    date: "2023-09-30",
+    time: "1:00 PM - 5:00 PM",
+    location: "Pierre Elliott Trudeau High School, 90 Bur Oak Ave, Markham",
+    description: "A grand Mid-Autumn Festival celebration held in partnership with the New Canadian Community Centre (NCCC) and other local organizations. The afternoon was filled with festive cheer, traditional performances, and community bonding.",
+    image: "/images/events/mid-autumn-festival-2023/mid-autumn-festival-2023.jpg",
+    galleryFolder: "mid-autumn-festival-2023",
+    category: "Cultural",
+    status: "past"
   }
 ];
