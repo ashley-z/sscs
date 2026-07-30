@@ -76,7 +76,7 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Board of Directors</h2>
           <div className="w-16 h-1 bg-primary mx-auto"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
           {boardMembers.map((member, idx) => (
             <BoardMemberCard key={idx} member={member} />

@@ -106,5 +106,53 @@ export const events: Event[] = [
     galleryFolder: "youth-against-drug-abuse",
     category: "Education",
     status: "past"
+  },
+  {
+    id: "lunar-new-year-2024",
+    title: "Happy Lunar New Year 2024",
+    date: "2024-02-18",
+    time: "10:00 AM - 12:00 PM",
+    location: "141 John Button Blvd",
+    description: "Come celebrate the 2024 Lunar New Year (Year of the Dragon) with family and friends at our Happy Lunar New Year festival. There were performances, activities, and celebrations organized by multiple community associations.",
+    image: "/images/events/lunar-new-year-2024/lunar-new-year-2024.jpg",
+    galleryFolder: "lunar-new-year-2024",
+    category: "Cultural",
+    status: "past"
+  },
+  {
+    id: "safety-seminar-2024",
+    title: "Tips for Living and Study Safety in Toronto",
+    date: "2024-03-29",
+    time: "1:00 PM - 3:00 PM",
+    location: "Zoom Online Meeting",
+    description: "In response to increasing incidents of crime in the Greater Toronto Area, this online safety seminar featured a Toronto police officer (Officer Hu) who provided practical tips on how to protect your personal safety and property while living and studying in Toronto.",
+    image: "/images/events/safety-seminar-2024/safety-seminar-2024.jpg",
+    galleryFolder: "safety-seminar-2024",
+    category: "Education",
+    status: "past"
+  },
+  {
+    id: "christmas-new-year-2023",
+    title: "Christmas & Happy New Year Party Event",
+    date: "2023-12-23",
+    time: "10:00 AM - 2:00 PM",
+    location: "Castlemore Public School, 256 Ridgecrest Rd, Markham, ON L6C 2R5",
+    description: "We hosted a festive Christmas and Happy New Year Party Event with holiday celebrations, performances, and exciting on-site lucky draws. This event was co-hosted with Markham Tai Chi Senior Club and Optimistic Me To We Cultural Organization.",
+    image: "/images/events/christmas-new-year-2023/christmas-new-year-2023.jpg",
+    galleryFolder: "christmas-new-year-2023",
+    category: "Cultural",
+    status: "past"
+  },
+  {
+    id: "mid-autumn-national-day-2023",
+    title: "Mid-Autumn Festival & National Day Celebration",
+    date: "2023-09-20",
+    time: "10:00 AM",
+    location: "Berczy Park North",
+    description: "A grand outdoor celebration for the Mid-Autumn Festival and National Day. The day was filled with community spirit, performances, badminton games, and lucky draws at Berczy Park North, co-hosted by multiple community organizations.",
+    image: "/images/events/mid-autumn-national-day-2023/mid-autumn-national-day-2023.jpg",
+    galleryFolder: "mid-autumn-national-day-2023",
+    category: "Cultural",
+    status: "past"
   }
 ];
