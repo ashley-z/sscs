@@ -6,18 +6,23 @@ export interface BoardMember {
 
 export const boardMembers: BoardMember[] = [
   {
-    name: "Director Name",
-    role: "Board Chair",
+    name: "Daniel Chen",
+    role: "President",
     image: "/images/board/placeholder.jpg"
   },
   {
-    name: "Director Name",
-    role: "Treasurer",
-    image: "/images/board/placeholder.jpg"
+    name: "Yash Kapur",
+    role: "Vice President",
+    image: "/images/board/yash-kapur.jpg"
   },
   {
-    name: "Director Name",
+    name: "Hannah Zheng",
+    role: "Director",
+    image: "/images/board/hannah-zheng.jpeg"
+  },
+  {
+    name: "Li Liu",
     role: "Secretary",
-    image: "/images/board/placeholder.jpg"
+    image: "/images/board/li-liu.jpg"
   }
 ];
