@@ -8,8 +8,20 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  const upcomingEvents = events.filter(e => e.status === 'upcoming').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-  const pastEvents = events.filter(e => e.status === 'past').sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const upcomingEvents = events
+    .filter(e => e.status === 'upcoming')
+    .sort((a, b) => {
+      if (a.dateDisplay || !a.date) return -1;
+      if (b.dateDisplay || !b.date) return 1;
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+  const pastEvents = events
+    .filter(e => e.status === 'past')
+    .sort((a, b) => {
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 
   return (
     <main className="flex-1">

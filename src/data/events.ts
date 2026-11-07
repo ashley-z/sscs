@@ -1,7 +1,8 @@
 export interface Event {
   id: string;
   title: string;
-  date: string; // ISO 8601: "2025-07-01"
+  date?: string; // ISO 8601: "2025-07-01"
+  dateDisplay?: string; // Custom display e.g. "Rolling Applications"
   time?: string;
   location?: string;
   description: string;
@@ -9,38 +10,79 @@ export interface Event {
   galleryFolder?: string; // name of the folder inside public/images/events/ containing all photos
   category: 'Health & Fitness' | 'Cultural' | 'Education' | 'Advocacy' | 'Social';
   status: 'upcoming' | 'past';
+  sponsor?: string;
+  sponsorLogo?: string;
 }
 
 export const events: Event[] = [
   // Upcoming
   {
-    id: "summer-tai-chi-2025",
-    title: "Summer Tai Chi Morning",
-    date: "2025-06-14",
-    description: "Start your morning with our relaxing outdoor Tai Chi session for all skill levels.",
-    image: "/images/events/summer-tai-chi-2025.jpg",
-    category: "Health & Fitness",
-    status: "upcoming"
-  },
-  {
-    id: "canada-day-2025",
-    title: "Canada Day Community Celebration",
-    date: "2025-07-01",
-    description: "Join us for an intergenerational celebration of Canada Day with activities and food.",
-    image: "/images/events/canada-day-2025.jpg",
-    category: "Cultural",
-    status: "upcoming"
-  },
-  {
-    id: "digital-literacy-2025",
-    title: "Digital Literacy Workshop",
-    date: "2025-07-19",
-    description: "Learn essential skills for navigating mobile devices and online safety.",
-    image: "/images/events/digital-literacy-2025.jpg",
+    id: "food-safety-course-2026",
+    title: "Food Safety Certification Course",
+    dateDisplay: "Rolling Registration",
+    time: "Saturdays, 10:00 AM - 3:00 PM",
+    location: "Second Step Community Services (In-Person & Self-Study Options Available)",
+    description: "Earn an Ontario Ministry of Health-recognized Food Safety Certificate! Taught by an experienced Public Health Inspector with 16 years of expertise, this course prepares food handlers and supervisors to meet Ontario Regulation 493/17 requirements. Available as an in-person Saturday workshop or flexible self-study exam.\n\nImportant Registration Details:\n1. Pay by cash or e-transfer to lilyliu@outlook.com. Registration will be completed once payment received.\n2. Start date is dependent on the number of people who register (rolling registration). We will contact you for further information regarding the start date.",
+    image: "/images/events/food-safety/FoodsafetyCertificate.jpg",
+    galleryFolder: "food-safety",
     category: "Education",
     status: "upcoming"
   },
   // Past
+  {
+    id: "flu-season-prevention-2026",
+    title: "Cold and Flu Season Prevention and Preparation",
+    date: "2026-11-06",
+    time: "6:00 PM - 7:00 PM",
+    location: "Bur Oak High School, 933 Bur Oak Ave, Markham, ON L6E 1G4",
+    description: "An informative health seminar on cold and flu season prevention and preparation, led by infection prevention and control specialist Ling Huang. Topics covered respiratory viruses (Flu, COVID-19, RSV), gastrointestinal infections, seasonal and adult vaccines (shingles, pneumococcal), peak season precautions, and practical protective measures.",
+    image: "/images/events/flu-season-prevention/流感讲座11062026English.jpeg",
+    galleryFolder: "flu-season-prevention",
+    category: "Health & Fitness",
+    status: "past"
+  },
+  {
+    id: "nhsp-senior-abuse-prevention-yi-hu-2026",
+    title: "Senior Abuse and Fraud Prevention Workshop with Officer Yi Hu",
+    date: "2026-10-30",
+    time: "1:30 PM - 2:30 PM",
+    location: "King Square Shopping Centre, Unit 327, 9390 Woodbine Ave, Markham, ON L6C 0M5",
+    description: "Sponsored by Service Canada through the New Horizons for Seniors Program (NHSP), this interactive safety workshop was presented by Officer Yi Hu. It provided vital guidance on identifying different types of senior abuse and neglect, detecting fraudulent scams targeting older adults, and connecting with local community protection resources.",
+    image: "/images/events/new-horizon-senior/senior-abuse-fraud-prevention/20261030 - Officer Yi Hu/NHSP10302026English.jpeg",
+    galleryFolder: "new-horizon-senior/senior-abuse-fraud-prevention/20261030 - Officer Yi Hu",
+    category: "Advocacy",
+    status: "past",
+    sponsor: "Funded by the Government of Canada's New Horizons for Seniors Program (Service Canada)",
+    sponsorLogo: "/images/events/new-horizon-senior/nhsp-canada-logo.png"
+  },
+  {
+    id: "nhsp-senior-abuse-prevention-mo-chong-2026",
+    title: "Senior Abuse and Fraud Prevention Workshop",
+    date: "2026-09-16",
+    time: "11:00 AM - 1:00 PM",
+    location: "Vedic Cultural Centre, 4345 14th Avenue, Markham, ON",
+    description: "Funded by the Government of Canada's New Horizons for Seniors Program (Service Canada), this educational workshop featured guest speaker Officer Mo Chong. The session focused on recognizing signs of senior abuse (physical, emotional, neglect), staying alert to fraud, and knowing how to report suspected abuse to protect senior well-being.",
+    image: "/images/events/new-horizon-senior/senior-abuse-fraud-prevention/20260916 - Office Mo Chong/invitation of the workshop on Sept16.jpeg",
+    galleryFolder: "new-horizon-senior/senior-abuse-fraud-prevention/20260916 - Office Mo Chong",
+    category: "Advocacy",
+    status: "past",
+    sponsor: "Funded by the Government of Canada's New Horizons for Seniors Program (Service Canada)",
+    sponsorLogo: "/images/events/new-horizon-senior/nhsp-canada-logo.png"
+  },
+  {
+    id: "nhsp-senior-volunteers-training-2026",
+    title: "Senior Volunteers Training (New Horizons Senior Program)",
+    date: "2026-09-09",
+    time: "10:00 AM - 12:00 PM",
+    location: "Second Step Community Services, Markham, ON",
+    description: "As part of the New Horizons for Seniors Program sponsored by Service Canada, this volunteer training workshop brought together senior community members to build volunteer skills, share leadership experiences, and foster mutual community support.",
+    image: "/images/events/new-horizon-senior/senior-training/WechatIMG54.jpg",
+    galleryFolder: "new-horizon-senior/senior-training",
+    category: "Social",
+    status: "past",
+    sponsor: "Funded by the Government of Canada's New Horizons for Seniors Program (Service Canada)",
+    sponsorLogo: "/images/events/new-horizon-senior/nhsp-canada-logo.png"
+  },
   {
     id: "lunar-new-year-2025",
     title: "Lunar New Year Celebration 2025",
@@ -102,8 +144,8 @@ export const events: Event[] = [
     time: "10:00 AM - 11:30 AM",
     location: "Unit 14, 10950 Woodbine Avenue, Markham, ON",
     description: "A resident-led initiative funded through the Community Violence Prevention Fund. This event aims to raise awareness about drug prevention and its impact on our youth. Officer Kelly Firanski from York Region Police is the guest speaker.",
-    image: "/images/events/youth-against-drug-abuse/480063736_122110548116748851_4025287503927649435_n.jpg",
-    galleryFolder: "youth-against-drug-abuse",
+    image: "/images/events/youth-against-drug-abuse/Youthposters.jpg",
+    galleryFolder: "youth-against-drug-abuse/20250122",
     category: "Education",
     status: "past"
   },

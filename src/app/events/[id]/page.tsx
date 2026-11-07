@@ -1,7 +1,7 @@
 import { events } from "@/data/events";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock, MapPin } from "lucide-react";
 import fs from 'fs';
 import path from 'path';
 import ImageGallery from "@/components/ImageGallery";
@@ -15,13 +15,14 @@ export async function generateStaticParams() {
 export default async function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const event = events.find(e => e.id === resolvedParams.id);
-  
+
   if (!event) {
     notFound();
   }
 
-  const dateObj = new Date(event.date);
-  const fullDate = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const fullDate = event.dateDisplay || (event.date
+    ? new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+    : 'Rolling Registration');
 
   let galleryImages: string[] = [];
   if (event.galleryFolder) {
@@ -41,9 +42,9 @@ export default async function EventDetailPage({ params }: { params: Promise<{ id
   return (
     <main className="flex-1 bg-cream pb-16">
       {/* Header Banner */}
-      <div 
+      <div
         className="relative h-[300px] md:h-[400px] w-full bg-gradient-to-br from-charcoal to-primary-dark"
-        style={event.image ? { backgroundImage: `url(${event.image})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+        style={event.image ? { backgroundImage: `url("${encodeURI(event.image)}")`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
       >
         <div className="absolute inset-0 bg-charcoal/60 flex flex-col justify-end pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <span className="bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white rounded-full w-fit mb-4">
@@ -63,10 +64,41 @@ export default async function EventDetailPage({ params }: { params: Promise<{ id
             <ArrowLeft size={16} />
             Back to Events
           </Link>
-          
+
+          {(event.time || event.location) && (
+            <div className="mb-8 p-4 rounded-lg bg-cream/50 border border-border flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 text-mid text-sm md:text-base">
+              {event.time && (
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-primary shrink-0" />
+                  <span className="font-medium text-charcoal">{event.time}</span>
+                </div>
+              )}
+              {event.location && (
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="font-medium text-charcoal">{event.location}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="prose max-w-none text-charcoal">
-            <p className="text-lg leading-relaxed">{event.description}</p>
-            
+            <p className="text-lg leading-relaxed whitespace-pre-line">{event.description}</p>
+
+            {event.sponsorLogo && (
+              <div className="my-8 p-5 rounded-xl bg-gray-50 border border-border flex flex-col sm:flex-row items-center gap-5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={event.sponsorLogo}
+                  alt={event.sponsor || "Program Sponsor"}
+                  className="h-10 md:h-12 w-auto object-contain shrink-0"
+                />
+                {event.sponsor && (
+                  <p className="text-sm md:text-base text-mid font-medium m-0">{event.sponsor}</p>
+                )}
+              </div>
+            )}
+
             <p className="mt-6 text-mid leading-relaxed">
               This event is open to all community members. Programs at Second Step Community Services are delivered bilingually in English and Chinese to ensure everyone feels welcome and included. Please contact us for registration details or if you have any questions about accessibility.
             </p>

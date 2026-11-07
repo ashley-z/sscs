@@ -6,6 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Second Step Community Services | Markham, Ontario",
   description: "Bilingual community programs for seniors, youth, and newcomers in the Markham and GTA area.",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
