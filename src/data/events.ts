@@ -16,6 +16,7 @@ export interface Event {
 
 export const events: Event[] = [
   // Upcoming
+  /* 
   {
     id: "food-safety-course-2026",
     title: "Food Safety Certification Course",
@@ -28,6 +29,7 @@ export const events: Event[] = [
     category: "Education",
     status: "upcoming"
   },
+  */
   // Past
   {
     id: "flu-season-prevention-2026",

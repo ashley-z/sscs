@@ -22,7 +22,7 @@ export default async function EventDetailPage({ params }: { params: Promise<{ id
 
   const fullDate = event.dateDisplay || (event.date
     ? new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
-    : 'Rolling Registration');
+    : 'Rolling Applications');
 
   let galleryImages: string[] = [];
   if (event.galleryFolder) {
